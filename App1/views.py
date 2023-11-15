@@ -27,8 +27,5 @@ def list_of_products(request):
         {"id": 7, "name": "Картофель фри", "quantity": 0},
         {"id": 8, "name": "Кепка", "quantity": 124},
     ]
-    result = {}
-    for item in items:
-        result["name"] = item["name"]
+    return render(request, "2.html", {"items": items})
 
-    return render(request, "2.html", result)

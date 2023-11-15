@@ -8,8 +8,8 @@
 <h1>Список товаров</h1>
 <div>
 <ol>
-    {% for name in result %}
-        <li>name</li>
+    {% for item in items %}
+        <li>{{ item.name }}</li>
     {% endfor %}
 </ol>
 </div>
