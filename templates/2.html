@@ -1,17 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        ul.breadcrumb {
+        padding: 10px 16px;
+        list-style: none;
+        background-color: #eee;
+      }
+        ul.breadcrumb li {
+        display: inline;
+        font-size: 18px;
+      }
+      ul.breadcrumb li+li:before {
+        padding: 8px;
+        color: black;
+        content: ">\00a0";
+      }
+      ul.breadcrumb li a {
+        color: #0275d8;
+        text-decoration: none;
+      }
+      ul.breadcrumb li a:hover {
+        color: #01447e;
+        text-decoration: underline;
+      }
+    </style>
     <meta charset="UTF-8">
     <title>Список товаров</title>
 </head>
 <body>
 <h1>Список товаров</h1>
 <div>
-<ol>
-    {% for item in items %}
-        <li>{{ item.name }}</li>
-    {% endfor %}
-</ol>
+    <ol>
+        {% for item in items %}
+
+        <li><a href="/item/{{ item.id }}">{{ item.name }}</a></li>
+
+        {% endfor %}
+
+
+    </ol>
 </div>
+<ul class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="/items/">Items</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href=#></a></li>
+
+ </ul>
 </body>
 </html>

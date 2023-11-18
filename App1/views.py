@@ -1,5 +1,6 @@
+from django.http import HttpResponse
 from django.shortcuts import render
-
+from App1.models import Item
 
 def hello(request, item_id):
     items = [
@@ -29,3 +30,44 @@ def list_of_products(request):
     ]
     return render(request, "2.html", {"items": items})
 
+
+def main_page(request):
+    return render(request, "Main.html")
+
+
+def about(request):
+    return render(request, "about.html")
+
+
+def fill(request):
+    item = Item(name="Milk", quantity=5)
+    item = Item(name="Eggs", quantity=10)
+    item.save()
+    return HttpResponse("Successfull")
+
+
+def create_item(request):
+    item = Item(name="Milk", quantity=5, price=500)
+    item.save()
+    result = f"{item.name} Quantity {item.quantity} Price {item.price} "
+    return HttpResponse(result)
+
+
+def read_item(request, item_id):
+    item = Item.objects.filter(id=item_id).first()
+    result = f"{item.name} Quantity {item.quantity} Price {item.price} "
+    return HttpResponse(result)
+
+
+def update_item(request, item_id):
+    item = Item.objects.filter(id=item_id).first()
+    item.name = "Nails"
+    item.save()
+    result = f"Name {item.name}  Quantity {item.quantity}  Price {item.price} "
+    return HttpResponse(result)
+
+
+def delete_item(request, item_id):
+    item = Item.objects.filter(id=item_id).first()
+    item.delete()
+    return HttpResponse("Successfull")
