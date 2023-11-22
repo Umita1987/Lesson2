@@ -1,18 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        with: 100%
-        }
-        td, th {
-        border: 1px solid #ddd;
-        text-align:left;
-        padding: 8px;
-        }
-    </style>
+
     <style>
         ul.breadcrumb {
         padding: 10px 16px;
@@ -31,6 +20,7 @@
       ul.breadcrumb li a {
         color: #0275d8;
         text-decoration: none;
+        font-family: arial, sans-serif;
       }
       ul.breadcrumb li a:hover {
         color: #01447e;
@@ -42,29 +32,16 @@
 </head>
 <body>
 <h1>О товаре</h1>
-<div>
-    <table>
-        <tbody>
-        <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>quantity</th>
-        </tr>
-        <tr>
-            <td>{{ id }}</td>
-            <td>{{ name }}</td>
-            {% if quantity == 0 %}
-            <td>“товар отсутствует”.</td>
-            {% else %}
-            <td>{{ quantity }}</td>
-
-            {% endif %}
-
-        </tr>
-        </tbody>
-    </table>
-</div>
-<div>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'mystyle.css' %}">
+     <div class="product-item">
+        <img src="https://t4.ftcdn.net/jpg/00/57/93/05/240_F_57930538_Ytnz8Lk6JnQc1GA1cPfFVJ39o2KBBFUa.jpg">
+        <div class="product-list">
+            <h3>{{name }}</h3>
+            <span class="price">{{price}} руб</span>
+            <a href="" class="button">В корзину</a>
+        </div>
+    </div>
 
 <ul class="breadcrumb">
     <li><a href="/">Home</a></li>

@@ -4,11 +4,11 @@ from App1.models import Item
 
 def hello(request, item_id):
     items = [
-        {"id": 1, "name": "Кроссовки abibas", "quantity": 5},
-        {"id": 2, "name": "Куртка кожаная", "quantity": 2},
-        {"id": 5, "name": "Coca-cola 1 литр", "quantity": 12},
-        {"id": 7, "name": "Картофель фри", "quantity": 0},
-        {"id": 8, "name": "Кепка", "quantity": 124},
+        {"id": 1, "name": "Кроссовки abibas", "quantity": 5, "price": 2500},
+        {"id": 2, "name": "Куртка кожаная", "quantity": 2, "price": 4500},
+        {"id": 5, "name": "Coca-cola 1 литр", "quantity": 5, "price": 400},
+        {"id": 7, "name": "Картофель фри", "quantity": 0, "price": 500},
+        {"id": 8, "name": "Кепка", "quantity": 124, "price": 1500},
     ]
     result = {}
     for el in items:
@@ -16,19 +16,20 @@ def hello(request, item_id):
             result["id"] = el["id"]
             result["name"] = el["name"]
             result["quantity"] = el["quantity"]
+            result["price"] = el["price"]
             break
     return render(request, "1.html", result)
 
 
 def list_of_products(request):
     items = [
-        {"id": 1, "name": "Кроссовки abibas", "quantity": 5},
-        {"id": 2, "name": "Куртка кожаная", "quantity": 2},
-        {"id": 5, "name": "Coca-cola 1 литр", "quantity": 12},
-        {"id": 7, "name": "Картофель фри", "quantity": 0},
-        {"id": 8, "name": "Кепка", "quantity": 124},
+        {"id": 1, "name": "Кроссовки abibas", "quantity": 5, "price": 2500},
+        {"id": 2, "name": "Куртка кожаная", "quantity": 2, "price": 4500},
+        {"id": 5, "name": "Coca-cola 1 литр", "quantity": 5, "price": 400},
+        {"id": 7, "name": "Картофель фри", "quantity": 0, "price": 500},
+        {"id": 8, "name": "Кепка", "quantity": 124, "price": 1500},
     ]
-    return render(request, "2.html", {"items": items})
+    return render(request, "product.html", {"items": items})
 
 
 def main_page(request):
