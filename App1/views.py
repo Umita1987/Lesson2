@@ -31,7 +31,7 @@ def hello(request, item_id):
 def list_of_products(request):
     items = [
         {"id": 1, "name": "Кроссовки abibas", "quantity": 5, "price": 2500,
-         "image": "https://bugbytes-django-s3-demo.s3.eu-north-1.amazonaws.com/photos/2023/11/28/adidas.jpg"},
+         "image": "https://bugbytes-django-s3-demo.s3.eu-north-1.amazonaws.com/photos/2023/11/28/adidas_yLYGDs0.jpg"},
         {"id": 2, "name": "Куртка кожаная", "quantity": 2, "price": 4500,
          "image": "https://bugbytes-django-s3-demo.s3.eu-north-1.amazonaws.com/photos/2023/11/26/%D0%BA%D1%83%D1%80%D1%82%D0%BA%D0%B01.jpg"},
         {"id": 5, "name": "White T-shirt", "quantity": 5, "price": 2500,
