@@ -34,10 +34,10 @@ def list_of_products(request):
          "image": "https://bugbytes-django-s3-demo.s3.eu-north-1.amazonaws.com/photos/2023/11/28/adidas.jpg"},
         {"id": 2, "name": "Куртка кожаная", "quantity": 2, "price": 4500,
          "image": "https://bugbytes-django-s3-demo.s3.eu-north-1.amazonaws.com/photos/2023/11/26/%D0%BA%D1%83%D1%80%D1%82%D0%BA%D0%B01.jpg"},
-        {"id": 5, "name": "Coca-cola 1 литр", "quantity": 5, "price": 400,
-         "image": "https://bugbytes-django-s3-demo.s3.eu-north-1.amazonaws.com/photos/2023/11/26/thumb_page_4e299acc1d077cfaadc6d7053db94346.jpg"},
-        {"id": 7, "name": "Картофель фри", "quantity": 0, "price": 500,
-         "image": "https://bugbytes-django-s3-demo.s3.eu-north-1.amazonaws.com/photos/2023/11/27/aviko_frytki-original_750g.png"},
+        {"id": 5, "name": "White T-shirt", "quantity": 5, "price": 2500,
+         "image": "https://bugbytes-django-s3-demo.s3.eu-north-1.amazonaws.com/photos/2023/11/28/white_t-shirt.jpg"},
+        {"id": 7, "name": "Vintage pink dress", "quantity": 0, "price": 500,
+         "image": "https://bugbytes-django-s3-demo.s3.eu-north-1.amazonaws.com/photos/2023/11/28/pink_dress.jpg"},
         {"id": 8, "name": "Кепка", "quantity": 124, "price": 1500, "image": "https://bugbytes-django-s3-demo.s3.eu-north-1.amazonaws.com/photos/2023/11/27/%D0%BA%D0%B5%D0%BF%D0%BA%D0%B0.jpg"},
     ]
     return render(request, "product.html", {"items": items})
