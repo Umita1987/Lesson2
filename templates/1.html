@@ -2,42 +2,19 @@
 <html lang="en">
 <head>
 
-    <style>
-        ul.breadcrumb {
-        padding: 10px 16px;
-        list-style: none;
-        background-color: #eee;
-      }
-        ul.breadcrumb li {
-        display: inline;
-        font-size: 18px;
-      }
-      ul.breadcrumb li+li:before {
-        padding: 8px;
-        color: black;
-        content: ">\00a0";
-      }
-      ul.breadcrumb li a {
-        color: #0275d8;
-        text-decoration: none;
-        font-family: arial, sans-serif;
-      }
-      ul.breadcrumb li a:hover {
-        color: #01447e;
-        text-decoration: underline;
-      }
-    </style>
+
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>О товаре</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'mystyle.css' %}">
 </head>
 <body>
 <h1>О товаре</h1>
-{% load static %}
-    <link rel="stylesheet" href="{% static 'mystyle.css' %}">
+
      <div class="product-item">
-        <img src="https://t4.ftcdn.net/jpg/00/57/93/05/240_F_57930538_Ytnz8Lk6JnQc1GA1cPfFVJ39o2KBBFUa.jpg">
+        <img src={{image}}>
         <div class="product-list">
-            <h3>{{name }}</h3>
+            <h3>{{name}}</h3>
             <span class="price">{{price}} руб</span>
             <a href="" class="button">В корзину</a>
         </div>

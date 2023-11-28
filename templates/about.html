@@ -1,47 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        H1 {font-size: 22pt;
-        font-weight: bold;
-        font-style: normal
-        }
 
-    </style>
-    <style>
-        body {font-size: 16pt;
-
-        }
-    </style>
-    <style>
-        ul.breadcrumb {
-        padding: 10px 16px;
-        list-style: none;
-        background-color: #eee;
-      }
-        ul.breadcrumb li {
-        display: inline;
-        font-size: 18px;
-      }
-      ul.breadcrumb li+li:before {
-        padding: 8px;
-        color: black;
-        content: ">\00a0";
-      }
-      ul.breadcrumb li a {
-        color: #0275d8;
-        text-decoration: none;
-      }
-      ul.breadcrumb li a:hover {
-        color: #01447e;
-        text-decoration: underline;
-      }
-    </style>
     <meta charset="UTF-8">
     <title>About</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'mystyle.css' %}">
 </head>
 <body>
-<img src="0-02-05-e564a2cef2fd9ba9ffd0d324e5ae8f28323539fa82402f5108b944744b23007a_151c37e0f6dd6d9e.jpg" alt="Tanya with Mazda" style="width:500px; height: 600px">
+<header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'main' %}">Главная</a></li>
+            <li><a href="{% url 'products' %}">Товары</a></li>
+            <li><a href="{% url 'about' %}">Обо мне</a></li>
+        </ul>
+    </nav>
+</header>
+
+<img style="padding: 15px 0 0 0;"
+     src="/media/photos/2023/11/23/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_viber_2023-11-19_06-16-13-758_c2k7gQn.jpg"
+     width="400px" alt="Tanya with Mazda">
 <p>
     My name is Tanya. Its my first Django project
 </p>

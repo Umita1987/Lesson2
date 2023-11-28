@@ -1,87 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style>
-        ul.breadcrumb {
-        padding: 10px 16px;
-        list-style: none;
-        background-color: #eee;
-      }
-        ul.breadcrumb li {
-        display: inline;
-        font-size: 16px;
-        font-family: arial, sans-serif;
-      }
-      ul.breadcrumb li+li:before {
-        padding: 8px;
-        color: black;
-        content: ">\00a0";
-        font-family: arial, sans-serif;
-      }
-      ul.breadcrumb li a {
-        color: #0275d8;
-        text-decoration: none;
-        font-family: arial, sans-serif;
-      }
-      ul.breadcrumb li a:hover {
-        color: #01447e;
-        text-decoration: underline;
-        font-family: arial, sans-serif;
-      }
-    </style>
-    <style>
-        ol {
-    list-style-type: none;
-    counter-reset: num;
-    margin: 0 0 0 45px;
-    padding: 15px 0 5px 0;
-    font-size: 16px;
-    font-family: arial, sans-serif;
-}
-ol li {
-    position: relative;
-    margin: 0 0 0 0;
-    padding: 0 0 10px 0;
-    line-height: 1.4;
-}
-ol li:before {
-    content: counter(num);
-    counter-increment: num;
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: -38px;
-    width: 28px;
-    height: 28px;
-    background: #eee;
-    color:  #444;
-    text-align: center;
-    line-height: 28px;
-    font-size: 18px;
-}
-    </style>
     <meta charset="UTF-8">
     <title>Список товаров</title>
-
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'mystyle.css' %}">
 </head>
 <body>
-<h1>Список товаров</h1>
-{% load static %}
-<link rel="stylesheet" href="{% static 'mystyle.css' %}">
-{% for item in items %}
-<div class="product-item">
-    <img src="https://t4.ftcdn.net/jpg/00/57/93/05/240_F_57930538_Ytnz8Lk6JnQc1GA1cPfFVJ39o2KBBFUa.jpg">
-    <div class="product-list">
-        <h3><a href="/item/{{ item.id }}">{{ item.name }}</a></h3>
-        <span class="price">{{item.price}} руб</span>
-        <a href="" class="button">В корзину</a>
-    </div>
-</div>
-{% endfor %}
-<ul class="breadcrumb">
-    <li><a href="/">Home</a></li>
-    <li>Список товаров</li>
 
-</ul>
+<header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'main' %}">Главная</a></li>
+            <li><a href="{% url 'products' %}">Товары</a></li>
+            <li><a href="{% url 'about' %}">Обо мне</a></li>
+        </ul>
+
+        <ul class="breadcrumb">
+            <li><a href="/">Главная</a></li>
+            <li>Товары</li>
+
+        </ul>
+    </nav>
+</header>
+<h1>Список товаров</h1>
+<div class="content">
+    {% block content %}
+    <section>
+        {% for item in items %}
+        <div class="product-item">
+            <img src="{{item.image}}">
+            <div class="product-list">
+                <h3><a href="/item/{{ item.id }}">{{ item.name }}</a></h3>
+                <span class="price">{{item.price}} руб</span>
+                <a href="" class="button">В корзину</a>
+
+            </div>
+
+        </div>
+        {% endfor %}
+    </section>
+    {% endblock %}
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>О нас</h3>
+                <p>Мы компания, предоставляющая качественные товары и услуги. Наша цель - обеспечить лучший сервис для
+                    наших
+                    клиентов.</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Полезные ссылки</h3>
+
+                <ul class="breadcrumb">
+                    <li><a href="/">Home</a></li>
+                    <li>Список товаров</li>
+
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h3>Контакты</h3>
+                <p><strong>Email:</strong> sailor101187@gmail.com</p>
+                <p><strong>Телефон:</strong> +48 517 265 849</p>
+                <!-- Добавьте другие контактные данные, если нужно -->
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; vashdomen.com | Designed by Tanya Shustova
+        </div>
+    </footer>
 </body>
 </html>
+
