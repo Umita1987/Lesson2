@@ -16,60 +16,56 @@
             <li><a href="{% url 'about' %}">Обо мне</a></li>
         </ul>
 
-        <ul class="breadcrumb">
-            <li><a href="/">Главная</a></li>
-            <li>Товары</li>
-
-        </ul>
     </nav>
 </header>
 <h1>Список товаров</h1>
-<div class="content">
-    {% block content %}
-    <section>
-        {% for item in items %}
-        <div class="product-item">
+<div class="cards">
+{% for item in items %}
+<div class="card">
+    <div class="card_top">
+        <a href="#" class="card_image">
             <img src="{{item.image}}">
-            <div class="product-list">
-                <h3><a href="/item/{{ item.id }}">{{ item.name }}</a></h3>
-                <span class="price">{{item.price}} руб</span>
-                <a href="" class="button">В корзину</a>
+        </a>
+       </div>
+    <div class="card_bottom">
+        <div class="card_prices">{{item.price}} руб</div>
+    </div>
+    <a href="/item/{{ item.id }}" class="card_title">{{ item.name }}</a>
+    <!-- Кнопка добавить в корзину -->
+    <button class="card_add">В корзину</button>
+</div>
 
-            </div>
+{% endfor %}
+</div>
 
+<footer>
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h3>О нас</h3>
+            <p>Мы компания, предоставляющая качественные товары и услуги. Наша цель - обеспечить лучший сервис для
+                наших
+                клиентов.</p>
         </div>
-        {% endfor %}
-    </section>
-    {% endblock %}
+        <div class="footer-section links">
+            <h3>Полезные ссылки</h3>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section about">
-                <h3>О нас</h3>
-                <p>Мы компания, предоставляющая качественные товары и услуги. Наша цель - обеспечить лучший сервис для
-                    наших
-                    клиентов.</p>
-            </div>
-            <div class="footer-section links">
-                <h3>Полезные ссылки</h3>
+            <ul class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                <li>Список товаров</li>
 
-                <ul class="breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li>Список товаров</li>
-
-                </ul>
-            </div>
-            <div class="footer-section contact">
-                <h3>Контакты</h3>
-                <p><strong>Email:</strong> sailor101187@gmail.com</p>
-                <p><strong>Телефон:</strong> +48 517 265 849</p>
-                <!-- Добавьте другие контактные данные, если нужно -->
-            </div>
+            </ul>
         </div>
-        <div class="footer-bottom">
-            &copy; vashdomen.com | Designed by Tanya Shustova
+        <div class="footer-section contact">
+            <h3>Контакты</h3>
+            <p><strong>Email:</strong> sailor101187@gmail.com</p>
+            <p><strong>Телефон:</strong> +48 517 265 849</p>
+            <!-- Добавьте другие контактные данные, если нужно -->
         </div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+        &copy; vashdomen.com | Designed by Tanya Shustova
+    </div>
+</footer>
 </body>
 </html>
 
