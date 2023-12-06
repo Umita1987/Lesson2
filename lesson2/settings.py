@@ -71,7 +71,7 @@ WSGI_APPLICATION = 'lesson2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': "lesson2",
         "USER": "myprojectuser",
         "PASSWORD": "password",
