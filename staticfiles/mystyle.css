@@ -1,216 +1,153 @@
-*{
-box-sizing: border-box
+.cards {
+  display: grid;
+  /* Автоматически заполняем на всю ширину grid-контейнера */
+  grid-template-columns: repeat(auto-fill, 500px);
+  width: 100%;
+  max-width: 1200px; /* Ширина grid-контейнера */
+  justify-content: center;
+  justify-items: center; /* Размещаем карточку по центру */
+  column-gap: 80px; /* Отступ между колонками */
+  row-gap: 40px; /* Отступ между рядами */
+  margin: 0 10 10 10;
+}
+.card {
+  width: auto;
+  min-height: 350px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Размещаем элементы в колонку */
+  border-radius: 4px;
+  transition: 0.2s;
+  position: relative;
 }
 
-section{
-    display: grid;
-    grid-template-columns: repeat(2, 2fr);
-    gap: 20px
-    max-width: 600px;
-    background-color: white;
-    text-color: black;
-    font-weight: bold;
-
-
-}
-.product-item {
-   width: 300px;
-   text-align: center;
-   margin: 10px auto;
-   background: white;
-   font-family: "Open Sans";
-   transition: .3s ease-in;
-   padding: 0 0 0 0;
-   color: #ff007f
-   font-weight: bold;
-    }
-.product-item:hover {
-width: 75%;
-height: 75%;
-}
-.product-item img {
-   display: block;
-   width: 100%;
-   height: auto;
-}
-.product-list {
-   background: #f5f5f5;
-   font-weight: bold;
-   padding: 15px 0;
-   margin: 5px 0  0 0;
-   ;
-
-
-}
-.product-list h3 {
-   font-size: 18px;
-   font-weight: 400;
-   color: #ff007f;
-   margin: 0 0 10px 0;
+/* При наведении на карточку - меняем цвет тени */
+.card:hover {
+  box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
 }
 
-
-.price {
-   font-size: 16px;
-   color: #ff007f;
-   display: block;
-   margin-bottom: 12px;
-   font-weight: bold;
-}
-.button {
-   text-decoration: none;
-   display: inline-block;
-   padding: 0 12px;
-   background: black;
-   color: white;
-   text-transform: uppercase;
-   font-size: 12px;
-   line-height: 28px;
-   transition: .3s ease-in;
+.card_top {
+  flex: 0 0 350px; /* Задаем высоту 220px, запрещаем расширение и сужение по высоте */
+  position: relative;
+  overflow: hidden; /* Скрываем, что выходит за пределы */
 }
 
-
-ul.breadcrumb {
-        padding: 10px 16px;
-        list-style: none;
-        background-color: #333;
-        text-align: left;
-      }
-        ul.breadcrumb li {
-        display: inline;
-        font-size: 16px;
-        font-color: white;
-        font-family: "Open Sans";
-      }
-      ul.breadcrumb li+li:before {
-        padding: 5px;
-        color: white;
-        content: ">\00a0";
-        font-family: "Open Sans";
-      }
-      ul.breadcrumb li a {
-        color: white;
-        text-decoration: none;
-        font-family: "Open Sans";
-      }
-      ul.breadcrumb li a:hover {
-        color: #01447e;
-        text-decoration: underline;
-        font-family: "Open Sans";
-      }
-
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+/* Контейнер для картинки */
+.card_image {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
+.card_image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Встраиваем картинку в контейнер card__image */
+  transition: 0.2s;
 }
 
-nav ul {
-    padding: 0;
-    list-style: none;
+/* При наведении - увеличиваем картинку */
+.card_image:hover > img {
+  transform: scale(1.1);
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 20px;
+/* Размещаем скидку на товар относительно изображения */
+.card_label {
+  padding: 4px 8px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: #ff6633;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+.card_bottom {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto; /* Занимаем всю оставшуюся высоту карточки */
+  padding: 10px;
 }
 
-nav a:hover {
-    color: #ddd;
+.card_prices {
+  display: flex;
+  margin-bottom: 10px;
+  flex: 0 0 50%; /* Размещаем цены равномерно в две колонки */
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
+.card_price:after {
+  content: "₽";
+  margin-left: 4px;
+  position: relative;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #444;
+.card_price-discount {
+  font-weight: 700;
+  font-size: 19px;
+  color: #414141;
+  display: flex;
+  flex-wrap: wrap-reverse;
 }
 
-.footer-section {
-    flex: 1;
-    padding: 0 20px;
+.card_price-discount:before {
+  content: "Со скидкой";
+  font-weight: 400;
+  font-size: 13px;
+  color: #bfbfbf;
 }
 
-.footer-section h3 {
-    color: #fff;
-    margin-bottom: 15px;
+.card_price-common {
+  font-weight: 400;
+  font-size: 17px;
+  color: #606060;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: flex-end;
 }
 
-.footer-section p,
-.footer-section ul {
-    font-size: 0.9em;
-    line-height: 1.6;
+.card_price-common::before {
+  content: "Обычная";
+  font-weight: 400;
+  font-size: 13px;
+  color: #bfbfbf;
 }
 
-.footer-section ul {
-    list-style: none;
-    padding: 0;
+.card_title {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 150%;
+  color: #414141;
 }
 
-.footer-section ul li a {
-    color: #bbb;
-    text-decoration: none;
+.card_title:hover {
+  color: #ff6633;
 }
 
-.footer-section ul li a:hover {
-    color: #fff;
+.card_add {
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  font-size: 17px;
+  color: #70c05b;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #70c05b;
+  border-radius: 4px;
+  cursor: pointer; /* Меняем курсор при наведении */
+  transition: 0.2s;
+  margin-top: auto; /* Прижимаем кнопку к низу карточки */
 }
 
-.footer-bottom {
-    margin-top: 20px;
-    font-size: 0.8em;
+.card_add:hover {
+  border: 1px solid #ff6633;
+  background-color: #ff6633;
+  color: #fff;
 }
 
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        text-align: left;
-    }
-
-    .footer-section {
-        margin-bottom: 20px;
-    }
-}
-
-html, body {
-    height: 100%;
-    margin: 10px;
-    padding: 10px
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    position: relative;
-}
-
-.content {
-    flex: 1;
-}
-
-footer {
-    bottom: 0;
-    width: 100%;
-}
