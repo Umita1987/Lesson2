@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Список товаров</title>
-    {% load static %}
+     {% load static %}
     <link rel="stylesheet" href="{% static 'mystyle.css' %}">
 </head>
 <body>
@@ -19,20 +19,33 @@
     </nav>
 </header>
 <h1>Список товаров</h1>
+
 <div class="cards">
 {% for item in items %}
+
+<!-- Карточка товара -->
 <div class="card">
-    <div class="card_top">
-        <a href="#" class="card_image">
-            <img src="{{item.image}}">
-        </a>
-       </div>
-    <div class="card_bottom">
-        <div class="card_prices">{{item.price}} руб</div>
+  <!-- Верхняя часть -->
+  <div class="card_top">
+    <!-- Изображение-ссылка товара -->
+    <a href="#" class="card_image">
+      <img src="{{ item.image }}"/>
+    </a>
+    <!-- Скидка на товар -->
+    <div class="card_label">-10%</div>
+  </div>
+  <!-- Нижняя часть -->
+  <div class="card_bottom">
+    <!-- Цены на товар (с учетом скидки и без)-->
+    <div class="card_prices">
+      <div class="card_price card_price-discount">1 000</div>
+      <div class="card_price card_price-common">{{item.price}}</div>
     </div>
-    <a href="/item/{{ item.id }}" class="card_title">{{ item.name }}</a>
+    <!-- Ссылка-название товара -->
+    <a href="/item/{{ item.id }}" class="card_title">{{ item.name }} </a>
     <!-- Кнопка добавить в корзину -->
     <button class="card_add">В корзину</button>
+  </div>
 </div>
 
 {% endfor %}
@@ -68,4 +81,3 @@
 </footer>
 </body>
 </html>
-
