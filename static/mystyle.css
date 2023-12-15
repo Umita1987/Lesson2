@@ -1,18 +1,17 @@
-cards {
+.cards {
   display: grid;
   /* Автоматически заполняем на всю ширину grid-контейнера */
-  grid-template-columns: repeat(auto-fill, 225px);
+  grid-template-columns: repeat(auto-fill, 500px);
   width: 100%;
-  max-width: 1000px; /* Ширина grid-контейнера */
+  max-width: 1200px; /* Ширина grid-контейнера */
   justify-content: center;
   justify-items: center; /* Размещаем карточку по центру */
-  column-gap: 30px; /* Отступ между колонками */
+  column-gap: 80px; /* Отступ между колонками */
   row-gap: 40px; /* Отступ между рядами */
-  margin: 0 auto;
+  margin: 0 10 10 10;
 }
-
-card {
-  width: 225px;
+.card {
+  width: auto;
   min-height: 350px;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -27,8 +26,8 @@ card {
   box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
 }
 
-card_top {
-  flex: 0 0 220px; /* Задаем высоту 220px, запрещаем расширение и сужение по высоте */
+.card_top {
+  flex: 0 0 350px; /* Задаем высоту 220px, запрещаем расширение и сужение по высоте */
   position: relative;
   overflow: hidden; /* Скрываем, что выходит за пределы */
 }
@@ -81,13 +80,13 @@ card_top {
   flex: 0 0 50%; /* Размещаем цены равномерно в две колонки */
 }
 
-.card_price::after {
+.card_price:after {
   content: "₽";
   margin-left: 4px;
   position: relative;
 }
 
-.card_price--discount {
+.card_price-discount {
   font-weight: 700;
   font-size: 19px;
   color: #414141;
@@ -95,7 +94,7 @@ card_top {
   flex-wrap: wrap-reverse;
 }
 
-.card__price--discount::before {
+.card_price-discount:before {
   content: "Со скидкой";
   font-weight: 400;
   font-size: 13px;
@@ -151,3 +150,4 @@ card_top {
   background-color: #ff6633;
   color: #fff;
 }
+
