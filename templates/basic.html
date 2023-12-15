@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My shop{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'mystyle.css' %}">
+</head>
+
+<body>
+<header>
+  <div class="wrap-logo">
+  <a href="#logo" class="logo">Логотип сайта</a>
+  </div>
+  <nav>
+    <a href="/">Главная</a>
+    <a href="#contact">Контакты</a>
+    <a href="/about/"> О нас </a>
+    <a class="active" href="/items/">Товары</a>
+
+  </nav>
+</header>
+{% block content %}
+
+{% endblock %}
+<footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>О нас</h3>
+                <p>Мы компания, предоставляющая качественные товары и услуги. Наша цель - обеспечить лучший сервис для наших клиентов.</p>
+            </div>
+            <div class="footer-section links">
+                <h3>Полезные ссылки</h3>
+                <ul>
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/items/">Товары</a></li>
+                    <!-- Добавьте сюда другие ссылки, если нужно -->
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h3>Контакты</h3>
+                <p><strong>Email:</strong> info@vashdomen.com</p>
+                <p><strong>Телефон:</strong> +7 123 456 7890</p>
+                <!-- Добавьте другие контактные данные, если нужно -->
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; vashdomen.com | Designed by Ваше Имя
+        </div>
+    </footer>
+</body>
+</html>

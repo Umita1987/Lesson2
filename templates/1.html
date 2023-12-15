@@ -1,31 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>О товаре</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'mystyle.css' %}">
-</head>
-<body>
+{% extends "basic.html" %}
+{% block title%}О товаре{% endblock %}
+{%block content%}
 <h1>О товаре</h1>
+<!-- Карточка товара -->
+<div class="card">
 
-     <div class="product-item">
-        <img src={{image}}>
-        <div class="product-list">
-            <h3>{{name}}</h3>
-            <span class="price">{{price}} руб</span>
-            <a href="" class="button">В корзину</a>
+        <div class="card__top">
+            <a href="#" class="card__image">
+                <img src="{{image}}" alt="{{name}}"/>
+            </a>
+
+            <div class="card__label">-10%</div>
+        </div>
+
+        <div class="card__bottom">
+            <!-- Цены на товар (с учетом скидки и без)-->
+            <div class="card__prices">
+                <div class="card__price card__price--discount">1 000</div>
+                <div class="card__price card__price--common">{{ price }}</div>
+            </div>
+            <!-- Ссылка-название товара -->
+            <a href="#" class="card__title">{{ name }} </a>
+            <!-- Кнопка добавить в корзину -->
+            <button class="card__add">В корзину</button>
         </div>
     </div>
-
-<ul class="breadcrumb">
-    <li><a href="/">Home</a></li>
-    <li><a href="/items/">Items</a></li>
-    <li>О товаре</li>
-
-</ul>
-</div>
-</body>
-</html>
+{% endblock %}
