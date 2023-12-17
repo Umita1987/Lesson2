@@ -1,83 +1,31 @@
-!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Список товаров</title>
-     {% load static %}
-    <link rel="stylesheet" href="{% static 'mystyle.css' %}">
-</head>
-<body>
-
-<header>
-    <nav>
-        <ul>
-            <li><a href="{% url 'main' %}">Главная</a></li>
-            <li><a href="{% url 'products' %}">Товары</a></li>
-            <li><a href="{% url 'about' %}">Обо мне</a></li>
-        </ul>
-
-    </nav>
-</header>
+{% extends "basic.html" %}
+{% block title%}Список товаров{% endblock %}
+{%block content%}
 <h1>Список товаров</h1>
 
 <div class="cards">
-{% for item in items %}
+    {% for item in items %}
 
-<!-- Карточка товара -->
-<div class="card">
-  <!-- Верхняя часть -->
-  <div class="card_top">
-    <!-- Изображение-ссылка товара -->
-    <a href="#" class="card_image">
-      <img src="{{ item.image }}"/>
-    </a>
-    <!-- Скидка на товар -->
-    <div class="card_label">-10%</div>
-  </div>
-  <!-- Нижняя часть -->
-  <div class="card_bottom">
-    <!-- Цены на товар (с учетом скидки и без)-->
-    <div class="card_prices">
-      <div class="card_price card_price-discount">1 000</div>
-      <div class="card_price card_price-common">{{item.price}}</div>
+    <div class="card">
+
+        <div class="card__top">
+            <a href="#" class="card__image">
+                <img src="{{item.image}}" alt="{{item.name}}"/>
+            </a>
+
+            <div class="card__label">-10%</div>
+        </div>
+
+        <div class="card__bottom">
+            <!-- Цены на товар (с учетом скидки и без)-->
+            <div class="card__prices">{{ item.price }} руб.</div>
+                         <!-- Ссылка-название товара -->
+            <a href="/item/{{ item.id }}" class="card__title">{{ item.name }} </a>
+            <!-- Кнопка добавить в корзину -->
+            <button class="card__add">В корзину</button>
+        </div>
     </div>
-    <!-- Ссылка-название товара -->
-    <a href="/item/{{ item.id }}" class="card_title">{{ item.name }} </a>
-    <!-- Кнопка добавить в корзину -->
-    <button class="card_add">В корзину</button>
-  </div>
+
+    {% endfor %}
 </div>
-
-{% endfor %}
-</div>
-
-<footer>
-    <div class="footer-content">
-        <div class="footer-section about">
-            <h3>О нас</h3>
-            <p>Мы компания, предоставляющая качественные товары и услуги. Наша цель - обеспечить лучший сервис для
-                наших
-                клиентов.</p>
-        </div>
-        <div class="footer-section links">
-            <h3>Полезные ссылки</h3>
-
-            <ul class="breadcrumb">
-                <li><a href="/">Home</a></li>
-                <li>Список товаров</li>
-
-            </ul>
-        </div>
-        <div class="footer-section contact">
-            <h3>Контакты</h3>
-            <p><strong>Email:</strong> sailor101187@gmail.com</p>
-            <p><strong>Телефон:</strong> +48 517 265 849</p>
-            <!-- Добавьте другие контактные данные, если нужно -->
-        </div>
-    </div>
-    <div class="footer-bottom">
-        &copy; vashdomen.com | Designed by Tanya Shustova
-    </div>
-</footer>
-</body>
-</html>
+{% endblock %}

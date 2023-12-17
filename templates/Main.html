@@ -1,52 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends "basic.html" %}
+{% block title%}Main{% endblock %}
+{%block content%}
+<div class="container">
+<img style="padding: 0 0 0 0; float: left"
+     src="https://bugbytes-django-s3-demo.s3.eu-north-1.amazonaws.com/photos/2023/12/16/online_shopping.jpg_.jpg"
+     width="800px"  alt="Online_shop">
+<p class="columns" >
+   Добро пожаловать в наш удобный интернет-магазин модной одежды! Изысканный стиль и высокое качество в каждом нашем товаре. Откройте для себя широкий ассортимент мужской, женской и детской одежды по доступным ценам.
+   Мы следим за последними тенденциями моды, чтобы предложить вам всегда актуальные коллекции. Будьте в центре внимания с нашей одеждой, созданной для вашего стиля и комфорта. Покупайте с удовольствием в нашем интернет-магазине!
+</p>
+   <form action="/items/" target="_blank">
+ <button style="width: 10em; height: 3em" class="card__add">Начать поиск</button>
+   </form>
+</div>
 
-    <meta charset="UTF-8">
-    <title>Главная страница</title>
-     {% load static %}
-    <link rel="stylesheet" href="{% static 'mystyle.css' %}">
-</head>
-<body>
-<header>
-        <nav>
-            <ul>
-                <li><a href="{% url 'main' %}">Главная</a></li>
-                <li><a href="{% url 'products' %}">Товары</a></li>
-                 <li><a href="{% url 'about' %}">Обо мне</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="content">
-        {% block content %}
-        Welcome to "My shop" – Your Ultimate Destination for Stylish Fashion!
-
-    Discover the latest trends and timeless classics in our curated collection of clothing. From casual chic to elegant
-    sophistication, we've got something for every style and occasion. Explore high-quality fabrics, impeccable
-    craftsmanship, and fashion-forward designs that cater to your unique taste.
-
-    Why choose "My shop"?
-
-    1. Fashion for Every Occasion: Whether you're dressing up for a special event or seeking everyday comfort, our
-    diverse range of clothing has you covered.
-
-    2. Quality You Can Trust: We believe in delivering not just fashion but quality. Each piece is crafted with
-    precision and attention to detail, ensuring durability and style that stands the test of time.
-
-    3. Trendy & Timeless Styles: Stay ahead of the fashion curve with our constantly updated collection. Find the latest
-    trends and timeless pieces that effortlessly elevate your wardrobe.
-
-    4. Easy Shopping Experience: Enjoy a seamless shopping experience with our user-friendly website. Browse, select,
-    and purchase with just a few clicks – because shopping for your favorite looks should be as enjoyable as wearing
-    them.
-
-    5. Customer Satisfaction Guaranteed: Your satisfaction is our priority. Shop with confidence, knowing that we are
-    committed to providing excellent customer service and ensuring you love every purchase.
-
-    Elevate your style with "My shop". Start exploring now!
-
-        {% endblock %}
-    </div>
-
-</body>
-</html>
+{% endblock %}

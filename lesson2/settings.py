@@ -20,7 +20,7 @@ SECRET_KEY = 'django-insecure-@o9lgpq)log1&(zr6baua1g-3wubji5j6sec#=a6&m04@8o6no
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["51.20.186.14", "localhost"]
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -32,7 +32,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "App1",
-  
+    "corsheaders",
+
+
 ]
 
 MIDDLEWARE = [
@@ -71,13 +73,8 @@ WSGI_APPLICATION = 'lesson2.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "lesson2",
-        "USER": "myprojectuser",
-        "PASSWORD": "password",
-        "HOST": "localhost",
-        "PORT": ""
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

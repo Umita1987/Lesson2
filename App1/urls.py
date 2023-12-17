@@ -8,11 +8,7 @@ urlpatterns = [
     path("items/", views.list_of_products, name="products"),
     path("", views.main_page, name="main"),
     path("about/", views.about, name="about"),
-    path("fill/", views.fill, name="fill"),
-    path("create/", views.create_item, name="create"),
-    path("read/<int:item_id>", views.read_item, name="get"),
-    path("update/<int:item_id>", views.update_item, name="update"),
-    path("delete/<int:item_id>", views.delete_item, name="delete"),
+    path("contacts/", views.contacts, name="contacts"),
     path("upload/", views.image_upload_view, name="image")
     ]
 if settings.DEBUG:

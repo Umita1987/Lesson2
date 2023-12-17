@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable = yes, width=device-width, hight=device-hight, initial-scale=1.0">
     <title>{% block title %}My shop{% endblock %}</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'mystyle.css' %}">
@@ -10,13 +11,13 @@
 <body>
 <header>
   <div class="wrap-logo">
-  <a href="#logo" class="logo">Логотип сайта</a>
+  <a href="#logo" class="logo">My shop</a>
   </div>
   <nav>
     <a href="/">Главная</a>
-    <a href="#contact">Контакты</a>
+    <a href="/contacts/">Контакты</a>
     <a href="/about/"> О нас </a>
-    <a class="active" href="/items/">Товары</a>
+    <a href="/items/">Товары</a>
 
   </nav>
 </header>
